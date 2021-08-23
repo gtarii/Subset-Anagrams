@@ -17,4 +17,4 @@ Method for doing so:
 
 -A world 'Word 1' can be checked to be an anagram of another word 'Word 2' or it's subset. The check returns true if the prime product of Word 1 divides into Word 2.
 
--I.e. Consider prime products of: "ab" = 2\*3, "abc" = 2\*\3*5. In this case the prime product of "ab" divides into "abc". This tells us that "ab" is an anagram of "abc" or the subset of "abc".
+-I.e. Consider prime products of: "ab" = 2\*3, "abc" = 2\*3\*5. In this case the prime product of "ab" divides into "abc". This tells us that "ab" is an anagram of "abc" or the subset of "abc".
