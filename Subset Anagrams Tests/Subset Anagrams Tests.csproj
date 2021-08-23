@@ -5,6 +5,8 @@
     <RootNamespace>Subset_Anagrams_Tests</RootNamespace>
 
     <IsPackable>false</IsPackable>
+
+    <Platforms>AnyCPU;x64</Platforms>
   </PropertyGroup>
 
   <ItemGroup>

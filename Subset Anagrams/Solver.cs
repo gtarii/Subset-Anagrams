@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text.RegularExpressions;
 using System.Linq;
 
 // Objective of this program is recieve user input of a string comprised of letters and return all anagrams of the subset of letters
@@ -11,13 +10,52 @@ namespace Subset_Anagrams
     {
         public static void Main(string[] args)
         {
+            // create an instance of our identifer class
+            var identifer = new Identifier();
+
             // set up variables
             string fileLocation = @"C:\Users\ariho\VisualStudio\source\repos\Subset Anagrams\data\wordlist.10000.txt";
             String[] wordDictionary = ReadFromFileLSV(@fileLocation);
 
-            // create an instance of our identifer class
-            var identifer = new Identifier();
+            // create a dictionary of word-value pairs the words from the wordDictionary and prime-product values from the identifier class
+            var wordValuePairs = CreateWordValuePairs(wordDictionary, identifer);
 
+            //our program loop for requesting user input and returning valid subset anagrams
+            int max_iterations = 1000;
+            int current_iteration = 0;
+            while (current_iteration < max_iterations) { // This needs a proper condition
+                current_iteration++;
+                
+                // Get user input
+                var input = GetInput();
+                var inputValue = identifer.GetProductPrimeValue(input);
+
+                //get subset anagrams of user input
+                var validAnagrams = FindAnagrams(inputValue, wordValuePairs);
+
+                // return list of valid anagrams to user, within reason, could for instance see first 10,20 etc etc
+                foreach (string anagram in validAnagrams)
+                {
+                    Console.WriteLine(anagram);
+                }
+            }
+        }
+
+        // Method for finding and returning subset anagrams of a list of characters from within a list of words
+        public static List<string> FindAnagrams(int valueOfInputString, Dictionary<string, int> wordValuePairs)
+        {
+            // !!! if the value of a word in our dictionary divides into the value of our input, then it is a subset anagram and we add it to a list of words to return
+            var outputWords = new List<string>();
+            foreach (var wordValuePair in wordValuePairs)
+            {
+                var word = wordValuePair.Key;
+                var value = wordValuePair.Value;
+                if (valueOfInputString % value == 0)
+                {
+                    outputWords.Add(word);
+                }
+            }
+            return outputWords;
         }
 
 
@@ -27,7 +65,7 @@ namespace Subset_Anagrams
             // explain rules for input to user
             String inputRulesString = "please input a word or some letters, no numbers or special characters";
             Console.WriteLine(inputRulesString);
-            
+
             // get user input as string
             var input = Console.ReadLine();
 
@@ -44,7 +82,17 @@ namespace Subset_Anagrams
         }
 
 
-        // Method to merge an array of words and an equal length array of integers together
+        // Method to create a dictionary given valid words and their product-prime values
+        public static Dictionary<string, int> CreateWordValuePairs(string[] words, Identifier identifier)
+        {
+            var wordValuePairs = new Dictionary<string, int>();
+            foreach (string word in words)
+            {
+                int wordValue = identifier.GetProductPrimeValue(word.ToCharArray());
+                wordValuePairs.Add(word, wordValue);
+            }
 
+            return wordValuePairs;
+        }
     }
 }

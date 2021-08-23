@@ -6,7 +6,7 @@ namespace Subset_Anagrams
 {
     public class Identifier
     {
-        private static Dictionary<string, int> alphabetPrimeDict;
+        private static Dictionary<char, int> alphabetPrimeDict;
 
 
         // Initialise Identifier class with a alphabet-prime dictionary
@@ -18,29 +18,29 @@ namespace Subset_Anagrams
 
 
         // Method that uses the alphabet-prime dictionary to return the product of the primes associated with the input characters
-        public static int GetProductPrimeValue(string[] characters)
+        public int GetProductPrimeValue(char[] characters)
         {
             int product = 1; // this will be the variable we return equal to the product of the primes associated with each of its characters
-            foreach (string c in characters)
+            foreach (char c in characters)
             {
-                product = product * alphabetPrimeDict[c];
+                product *= alphabetPrimeDict[c];
             }
             
             return product;
         }
         
         // Method that generates a dictionary with keys being the 26 characters of the english alphabet, and their corresponding values being the first available prime available for assignment
-        public static Dictionary<string, int> GenerateAlphabetPrimeDictionary()
+        public static Dictionary<char, int> GenerateAlphabetPrimeDictionary()
         {
-            string[] alphabet = new string[] {
-                "a","b","c","d","e","f","g","h","i","j","k","l","m",
-                "n","o","p","q","r","s","t","u","v","w","x","y","z"};
+            char[] alphabet = new char[] {
+                'a','b','c','d','e','f','g','h','i','j','k','l','m',
+                'n','o','p','q','r','s','t','u','v','w','x','y','z'};
 
             // get the corresponding primes for each character
             int[] primes = GeneratePrimes(alphabet.Length);
 
             // put the alphabet characters and their primes into a dictionary
-            Dictionary<string, int> primeDict = new Dictionary<string, int>();
+            var primeDict = new Dictionary<char, int>();
             for (int index = 0; index < alphabet.Length; index++)
             {
                 primeDict.Add(alphabet[index], primes[index]);
@@ -74,7 +74,7 @@ namespace Subset_Anagrams
                         if (prime > 1 && numberToCheck % prime == 0) // not prime
                         {
                             factorFound = true;
-                            numberToCheck = numberToCheck + 1; // increment our number
+                            numberToCheck++; // increment our number
                             break; //break the checking loop so we can try our new incremented number
                         }
                     }

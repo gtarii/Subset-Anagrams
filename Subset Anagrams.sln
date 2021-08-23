@@ -5,22 +5,31 @@ VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subset Anagrams", "Subset Anagrams\Subset Anagrams.csproj", "{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Subset Anagrams Tests", "Subset Anagrams Tests\Subset Anagrams Tests.csproj", "{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Subset Anagrams Tests", "Subset Anagrams Tests\Subset Anagrams Tests.csproj", "{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
 		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Debug|x64.ActiveCfg = Debug|x64
+		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Debug|x64.Build.0 = Debug|x64
 		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Release|x64.ActiveCfg = Release|x64
+		{0A63A17A-D1FD-41D8-ADA7-C337FA28C6A0}.Release|x64.Build.0 = Release|x64
 		{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}.Debug|x64.ActiveCfg = Debug|x64
 		{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}.Release|x64.ActiveCfg = Release|x64
+		{33FC0CFA-25FB-4AA7-B87E-5F24AD51FD1F}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

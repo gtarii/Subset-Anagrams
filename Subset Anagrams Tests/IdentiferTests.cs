@@ -10,7 +10,8 @@ namespace Subset_Anagrams_Tests
     {
         private const int numberOfPrimesTested = 10;
         private static readonly int[] firstTenPrimes = new int[] { 2, 3, 5, 7, 11, 13, 17, 19, 23, 29 }; // First 10 primes
-        private static readonly string[] testCharacters = new string[] {"a", "b", "c", "d", "e", "f", "g", "h", "i", "j"}; // character placements in english alphabet: s-19th, h-8th, e-5th, p-16th
+        private static readonly char[] testCharacters = new char[] { 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j' }; // character placements in english alphabet: s-19th, h-8th, e-5th, p-16th
+        private Identifier identifier = new Identifier();
 
         [TestMethod]
         // Test the GetPrimeProductVal method from the Identifier Class
@@ -21,8 +22,7 @@ namespace Subset_Anagrams_Tests
             {
                 expectedPrimeProduct *= p;
             }
-            Identifier identifier = new Identifier();
-            var primeProduct = Subset_Anagrams.Identifier.GetProductPrimeValue(testCharacters);
+            var primeProduct = identifier.GetProductPrimeValue(testCharacters);
             Assert.AreEqual(expectedPrimeProduct, primeProduct);
         }
 
@@ -30,14 +30,14 @@ namespace Subset_Anagrams_Tests
         // Test the GenerateAlphabetPrimeDictionary method from the Identifier Class
         public void TestVal_GenerateAlphabetPrimeDictionary()
         {
-            var testDict = Subset_Anagrams.Identifier.GenerateAlphabetPrimeDictionary();
+            var testDict = Identifier.GenerateAlphabetPrimeDictionary();
             var test_keys = testCharacters;
 
             // we test the generated dictionary by giving it keys and summing the values returned. We compare this sum to the expected sum.
             int test_sum = 0;
-            foreach (string key in test_keys)
+            foreach (char key in test_keys)
             {
-                test_sum = test_sum + testDict[key];
+                test_sum += testDict[key];
             }
             var expected_sum = 0; // expected sum is the sum of our prime array
             foreach (int p in firstTenPrimes)
@@ -52,7 +52,7 @@ namespace Subset_Anagrams_Tests
         public void Test_GeneratePrimes()
         {
             var expected = firstTenPrimes;
-            var primeArray = Subset_Anagrams.Identifier.GeneratePrimes(numberOfPrimesTested);
+            var primeArray = Identifier.GeneratePrimes(numberOfPrimesTested);
             CollectionAssert.AreEqual(expected, primeArray);
         }
     }
