@@ -1,5 +1,6 @@
 # Subset-Anagrams
 A program that takes an input string of characters and outputs anagrams of the subset of this input.
 
-Input: String of english alphabet characters
-Output: List of dictionary words that are contained within the input string of characters when allowing for rearrangement.
+Flow of program:
+-Asks for user to input a word or some characters, say "sheep"
+-Program searches a text file of words for any that fit into the input. In this case, some of the output words would be "sheep", "she", and "pee".
