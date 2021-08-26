@@ -6,11 +6,11 @@ using Subset_Anagrams;
 namespace Subset_Anagrams_Tests
 {
     [TestClass]
-    public class SolverTests
+    public class ProcessPartA_Tests
     {
         // testing variables
         Identifier identifier = new Identifier();
-        string[] testWords = new string[] {"sheep", "toothbrush"};
+        string[] testWords = new string[] {"abc", "sheep", "toothbrush"};
 
 
         [TestMethod]
@@ -43,9 +43,13 @@ namespace Subset_Anagrams_Tests
 
         [TestMethod]
         //
-        public void Test_createWordValuePairs()
+        public void Test_CreateWordValuePairs()
         {
-
+            var pairs = ProcessPartA.CreateWordValuePairs(testWords, identifier);
+            var testKey = testWords[0];
+            var testValue = pairs[testKey];
+            var expectedValue = identifier.GetProductPrimeValueOfWord(testKey);
+            Assert.AreEqual(expectedValue, testValue);
         }
     }
 }

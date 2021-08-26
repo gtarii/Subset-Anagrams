@@ -6,7 +6,7 @@ namespace Subset_Anagrams
 {
     public class Identifier
     {
-        private static Dictionary<char, int> alphabetPrimeDict;
+        private readonly Dictionary<char, int> alphabetPrimeDict;
 
 
         // Initialise Identifier class with a alphabet-prime dictionary
@@ -18,9 +18,11 @@ namespace Subset_Anagrams
 
 
         // Method that uses the alphabet-prime dictionary to return the product of the primes associated with the input characters
-        public int GetProductPrimeValue(char[] characters)
+        public int GetProductPrimeValueOfWord(string word)
         {
             int product = 1; // this will be the variable we return equal to the product of the primes associated with each of its characters
+
+            char[] characters = word.ToLower().ToCharArray();
             foreach (char c in characters)
             {
                 product *= alphabetPrimeDict[c];
@@ -34,7 +36,7 @@ namespace Subset_Anagrams
         {
             char[] alphabet = new char[] {
                 'a','b','c','d','e','f','g','h','i','j','k','l','m',
-                'n','o','p','q','r','s','t','u','v','w','x','y','z'};
+                'n','o','p','q','r','s','t','u','v','w','x','y','z','\''};
 
             // get the corresponding primes for each character
             int[] primes = GeneratePrimes(alphabet.Length);
